@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给最爱的你的圣诞礼物</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sky: '#A8D1E7',
+                        deepBlue: '#1E2F42',
+                        star: '#F5EFFF',
+                        rose: '#E06C75',
+                        mist: '#DCD6F7',
+                        darkMist: '#6C7A89',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'Georgia', 'Cambria', 'serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(168, 209, 231, 0.3), 0 0 40px rgba(220, 214, 247, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 8px rgba(245, 239, 255, 0.8), 0 0 15px rgba(168, 209, 231, 0.5);
+            }
+           .bg-light {
+                background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(30,47,66,0.95) 100%);
+                /* 方法1：定位居中（需先设置position） */
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                /* 方法2：块级元素居中（更简单） */
+                /* margin: 0 auto; */
+            }
+            .letter-border {
+                border: 1px solid rgba(168, 209, 231, 0.3);
+                box-shadow: 0 0 15px rgba(168, 209, 231, 0.2);
+            }
+            .star-fall {
+                background-image: 
+                    radial-gradient(circle, rgba(245,239,255,0.6) 1px, transparent 1px),
+                    radial-gradient(circle, rgba(245,239,255,0.4) 1px, transparent 1px);
+                background-size: 40px 40px;
+                background-position: 0 0, 20px 20px;
+                animation: star 18s linear infinite;
+            }
+            .text-indent {
+                text-indent: 2em;
+            }
+            @keyframes star {
+                0% { background-position: 0 0, 20px 20px; }
+                100% { background-position: 0 80px, 20px 100px; }
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+                100% { transform: translateY(0px); }
+            }
+            .float-animation {
+                animation: float 4s ease-in-out infinite;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen star-fall font-serif" style="background-image: url('https://i.imgur.com/your-image-url.jpg'); background-size: cover; background-attachment: fixed; background-position: center;">
+    <!-- 背景遮罩 -->
+    <div class="fixed inset-0 bg-deepBlue/80 z-0"></div>
+
+    <!-- 顶部装饰 -->
+    <div class="relative z-10 w-full py-6 text-center">
+        <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-star text-glow flex items-center justify-center gap-4 mb-2">
+            <<i class="fa fa-star text-sky text-[clamp(1.5rem,3vw,2rem)] float-animation"></</i>
+            云野来信
+            <<i class="fa fa-star text-sky text-[clamp(1.5rem,3vw,2rem)] float-animation" style="animation-delay: 0.5s;"></</i>
+        </h1>
+        <p class="mt-1 text-[clamp(1rem,2vw,1.3rem)] text-sky/90 font-light">致我最爱的子菁小朋友</p>
+        <div class="w-1/3 h-px bg-sky/30 mx-auto mt-3"></div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="relative z-10 container mx-auto px-4 py-8 md:py-16 max-w-4xl">
+        <!-- 信件容器 -->
+        <div class="bg-light letter-border rounded-xl p-6 md:p-10 mb-10 transform transition-all duration-700 hover:shadow-glow">
+            <!-- 信件头部 -->
+            <div class="text-center mb-8">
+                <div class="inline-block p-4 bg-sky/10 rounded-full mb-5 float-animation">
+                    <<i class="fa fa-heart text-rose text-4xl"></</i>
+                </div>
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-serif font-bold text-star mb-2">给最爱的你</h2>
+                <p class="text-mist/80 italic">2025年圣诞节 · 我们在光遇的第一个冬天</p>
+            </div>
+
+            <!-- 信件内容 -->
+            <div class="prose prose-lg max-w-none text-mist leading-relaxed font-serif space-y-6">
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    思来想去，还是想给你准备一份特殊的"礼物"，聊表心意。本想着跨年那天给你，但是想着哪天给都是给，索性就借助这次圣诞节送你这个，以此来回忆这半年以来"独属于"我们两个的点点滴滴。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    第一次见面还是在云野，那天闲来无事想着去云野看人聊天，半天没人来。然后就发现你一个人"孤独的"坐在椅子上，没人理你。当时想着闲着也是闲着，和你点完火，穿着红斗篷的小麻花，哈哈哈，我到现在都还记得，然后就来问问你有什么需要帮助的。还记得你说你霞光城那里的先祖拿不到，找人帮你，我就问你是哪个，你说你不知道然后你就马上回去看。当时可急得我，好友都没加，差点一了百了，不想回去了，想着算了，都答应你了，就回去了一趟。发现我是在遇境你在云巢，又马上往云巢跑，幸好的是没串，嘿嘿！然后到后面加好友，你不会用码，我给你解释了一遍，你还是没懂，然后我说让你搜一下教程，你就去了。当时我就觉得你还挺厉害的，因为会自己搜，不会像我以前遇到的一样一直问！在去霞谷的路上，我说我不知道是哪个先祖，让你拉着我去，一路看你飞行的姿势，emmm…，纯萌新，哈哈哈！最后也是带你拿完那里的两个先祖了。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    前面的你都很清楚的知道了，现在说点你不知道的！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    第二次见面是在暮土，拿完之后我叫你回去，你没回来，我当时突然有事就没多想我也就下了，过了一会看到你还在线，我就传你看看你在干啥。然后发现你在和暮土的空气墙过意不去，一直在往墙那里飞，我盯着你看了好半天，后面你去到了方舟，然后你看到了我，你说"好巧啊"。可不嘛，一直盯着你的，能不巧？然后你说你来拿魔法，我就顺手把你带上了。在然后呢，你都知道了，就是你拿先祖的事咯。然后就在那里聊了一会，发现你挺可怜，没人愿意相信你是萌新，也没个人帮你，后面我就说以后有事叫我。但是！那里变漂亮是真的麻烦，跑这么多地方，你还和我赌气呢你，我不是不愿意帮你！！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    从这以后我上线你基本上就会来找我，然后我就给你说红蜡烛啊，如何毕业啊这些问题，还让你千万千万别用钱买蜡烛，简直亏死了！再后来就是咱俩闹矛盾的时候咯。那天我一个人去雨林，刚好看到了你的留言说"大哥，我拿不到这个小金人，快来帮帮我"，大概就是这意思，哈哈哈！我当时就想着等你上线了我带你拿。然后到了晚上，你上线了，我来找你，发现你被别人拉着跑图，给你打了招呼，我还叫了好一会儿，你没理我，我想着过会再来。当时已经有点生气了，想着没事。过了一会我又来，你还是没理我，我那叫一个无语啊。哈哈哈！又过了一个小时左右吧我想着红石来了，我记得我答应过你要带你去拿，然后我来找你，你在暮土和你朋友弹琴，我来叫你了你说好马上就回来，我见你说完这话以后我叫你回，然后等了你好几分钟你都没回来，我又来看你你还在那里玩，我当时就生气了，真的！后面回去就把你删了呢，嘿嘿！后面就是你追着我跑啥的，这不说了！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    再后来啊，就是在遇境看到你放的音乐，我还记得是"葬花"这首歌，因为你觉得我喜欢听，其实也还好啦，我就在音符给你下面留言事情的原因，发现输入的字数有限，我就决定放个码，让你重新加我，这些你也还记得的，应该，后面就是一顿解释啥的，然后就和好了！后面有一天晚上你弹琴，弹的就是"葬花"，然后你给我说为了学这个你还跑去打印谱子了，我当时就觉得你人还挺不错，我对你应该好点的！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    往后就是咋俩在一起玩了，我一上线你就回来找我，我就带着你跑图啊，做任务啦，看风景啊，虽然只有那几个地方。每次和朋友聊天，首先给你找个玩偶，怕你一个人无聊。到后面认识了姜，他就在那里逗你，给你发省略号，你以为他不想搭理你！还记得你说你大三我还是抱有怀疑的态度。你给我说你，俄语专四，我去搜了一下问你多少分，哈哈哈哈，你还说对了，那时候差不多就信你了！每天就是挂机听歌，听你弹琴，带你跑图做任务。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    在然后，你觉得苹果老是掉你觉得好麻烦，决定换一个手机，"小心翼翼"的问我可以加我好友不，我现在还记得呢，还是在雨林挂机的点位问的我！我记性好不好，嘿嘿！然后加上好友，你转完服，你就在那说你好担心啥，怕我不在了，说了一大堆，我记得最清楚的一句话就是你说"不好意思，太高兴了，话有点多了"，你还说你没事不会打扰我的。哈哈哈哈，傻傻的！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    后面的，每天就是依旧做任务啊，带你跑图啊什么的，然后你偶尔和我分享一下你的外出生活。你还挺厉害的，自己把这么多季节任务，这么多先祖都自己拿了！说实话，这一点上我很佩服你，只有几个不会的才让我来，真的很棒了！我这每天罚站的生活就像这样多了一个小跟班或者可以说是"小麻烦"，不过感觉还挺不错的，很喜欢！再然后就是你被骗小裙子这事儿，我感觉我能一直记住，你都遇到的是啥人啊，运气也太不好了，我以为他天天带你弹琴，对你还挺不错的，没想到居然还骗你。吃一堑长一智，下次别随便相信别人了。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    那天晚上你突然问我吃不吃瓜，抱着好奇的心态说"吃"，没想到一说完我觉得你这事儿我只在视频上刷到过，没想到让你给遇到了，运气差到没话说。当时还在纳闷你给我说这事儿干嘛，毕竟你谁也没说过，就只知道你分手了，不知道细节，你居然给我说这么详细，当时确实没想到原因。因为这次，你变的不那么自信了，总觉得是自己的错，因为你自己他才出轨，我想说的是"你很好，是他没眼光，错过了这么好的你，你没有做错的地方，他不配"，以前我这么说，以后我也这么说，你很优秀的！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    从这事儿以后就发现有那么一点"不对劲"，当时也没多想。直到后面，从你的话里面能看得出来，从你每天分享你的事啊什么的，发现你好像有点喜欢我了，我也不知道怎么回应你，毕竟这事儿我也是第一次遇到。我也实在想不到我哪里好然后吸引你了，嘿嘿！印象我深刻的就是你问过我一个问题，你说"因为是我才愿意带的，还是因为我好带才愿意带"，我当时看懂了你的意思，但是我那时候没这想法啊，我就说都有，你说"你更希望是你我才愿意带"，这很明显了，哈哈哈！现在再想想，你捶死我得了！还有就是来找你打卡的那个，天天给你发，我当时就觉得你还挺有魅力，过去这么久的还记着你，哈哈哈！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    到了15号还是16号，你好像憋不住了，到了那天晚上咱俩在暮土挂机，你给我说明了你自己的内心的想法，我就在那听，但是我确实不知道怎么办，只能看着你说。我也确实想不到我到底哪里好了，还做了一个把你删了的"坏人"，嘿嘿嘿！我也没觉得我有哪里好，感觉挺普普通通的。从那天晚上你说了之后，我就想着和你保持一点小距离，让你不再喜欢我，但是你那一句"我做错什么了吗"，我心软了，不应该这么对你，你并没有错，错的是我，是我胆子小，不知道怎么面对！后面你说了两句话，现在还记得，"山林不向四季起誓，荣枯随缘；海洋不需对沙岸承诺，遇合尽兴"和"相处不应该设限朋友或是恋人，应该因为彼此契合而相处，不试图抓住关系，而是享受陪伴的过程"，听了你说的这两句话，我觉得很有道理。然后你问过我，"你是一点都不喜欢我，还是阻碍和顾虑太多，不能"，说句真的，当时好像有那么一点点意思，就想着带着你玩，就像以前那样还挺好！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    到后面我开学了，你也去了学校，你每天都一个人在宿舍，我就陪着你一起玩啊，让你注意啥的，你牙齿疼，那时候！我就发现我好像有点喜欢你了。当时想着先慢慢看吧，走一步算一步。最难忘的还是那个无翼和12翼啊！无翼那个是我闲着没事，想看看他在干嘛，又是看夕阳又是带我去吃蛋糕的，我就觉得逗逗他玩，我也很反感他这样，刚见面就看夕阳，这不纯恶心人，但是我没想到你生气的哭了，我当时就不知道该怎么办了！沉默了一会儿，想着不能一句话不说，然后我想到和你解锁那个打闹，让你打我一下，就这样哄好了，又把无翼给删了。因为我也不想留着，没啥用。对于12翼，他是有一天晚上在暮土听歌给遇到的，就聊了一下加了好友，其他的就没啥了！你说他在找我，我实在是冤枉，我你姜我们仨在遇境听歌，他上线串一起了，然后就来一起听歌了！我们三个就聊天，你不说过，然后我问你怎么了，你说你没什么，然后就跑去吃饭了。我当时就发现事情不对，赶紧上另一个号来找你，因为我确实不好走开，姜和12翼都还在，直接走要解释半天！然后说你哭着走的，还说你不想看到他来吃饭还不行吗。哎哟，太难受了你！这个你也打死我，放现在，我都不还手哈哈哈！后面我就把他拉黑了，不能让你伤心啊。然后又在遇境玩，拉黑了之后好像串在一起啦，当时他就在那里叫，好像发现我了，记得我马上大退说我卡了。当时真的慌，刚拉黑就有遇到，我运气也不好，似乎！这事儿就这么结束了。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    接着正式开学咯，每天有说不完的话，消失一下你就说你想我了，我就说不至于不至于，才这么点时间，简直把你气死了。你借着酒劲说你要当第一的那天晚上，我给同意了，你就应该能想到的，我有点喜欢你了，不然我同意干嘛，还把让你难受的那两个给删除拉黑，你个笨蛋！还愿意陪着你拍照，陪你打卡，玩游戏回你消息，基本上都是秒回你，这你都还看不出来嘛，哈哈哈！不过也怪我，怪我胆子小，不敢直接和你说！你还因为我哭了好多次，哎哟，这我又是该打死！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    当时我还想着，要是我不怎么玩游戏了，咋俩会不会没话说，到最后会不会就像我以前的那些朋友一样。后面发现好像不会，咋俩有说不完的话，每天都有聊的。双星季毕业以后，我就不怎么上线了，你也是一个厉害一点的萌新，离大佬不远了，除了不会跑暮土，其他的你都很棒！我也就没有带着你跑图做任务了，那时候对这游戏上线的想法不大，也就放心让你一个人"闯荡"！哦哦哦哦，对了对了，我说过我试炼不怎么会，不是不愿意带你，我是真不会，带你跑的时候我还开着小窗口看攻略呢，这个你就误会我咯。你还自己坚持几个小时做完，我也是佩服你的毅力！现在你已经能够带着我跑完水试炼了，你已经是一个厉害的大佬了，不像以前一样了。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    后面就是一些正常不过的聊天了，每天分享自己发生的一些事儿，或者偶尔喝多了来我这闹闹，嘿嘿！转折点就是那天咯，你发的那个语音，你觉得我说你声音不好听，真冤枉啊我笑的点事那个"嗯？"字，语音识别擦问号都弄出来了，我就觉得好玩没说你声音，我一点都不嫌弃！！然后你就生气了，我给你解释完帮你哄好了以后，我也觉得有点生气，第二天和第三天没发表情包，被你发现我生气了，我当时就想着过几天没准就好了，你就一直哄着我，哎哟，这叫我怎么生气嘛！11月10号那天，你喝多了，因为我说了一句"你不要坚持了"，我的本意是我不值得，你这么好，你想错啦！那要晚上你在游戏里面和我说了很多很多，也把我骂了一顿，感觉把我骂醒了，我也感觉到了我错的挺离谱，你都这样了，我还不敢有回应，简直不是个人。当天晚上睡得最晚的一天，1点多才睡，得把你哄好啊，整晚上醒了好多次，也想了很多。第二天继续哄你，问你好没有，你一直在说好了好了，当时我好害怕你是骗我的，其实没有好，只是不想让我担心才骗我说你好了！我也怕我多问几次你觉得烦，也不敢多问，就说行吧行吧！从这以后我就绝对我得变变了，不然你真的会碎掉的。11号，我让你上线，给你抱抱，和你解锁二级的，还给你录了留影，说以后想抱就来看留影，后面你说，你盯着屏幕傻笑，笑着笑着就哭了！你知道吗，当我是我都觉得好心酸，哪能哭呢，怎么能哭呢，我心里也不好受，从这天起我就决定给你找个时间和你说一句我喜欢你。14号，你问我是不是稀罕你，我说是啊，你应该猜到了！然后我说你有啥问题都可以问，你还不问，哈哈哈！然后上线带你跑图，我问你知道我为什么真的带着你吗？你的回答是"你小，因为你是萌新，因为你不会"，这些都是啥理由啊，你简直在乱讲，我当时就想让你说一句"那是为啥"，我就回答你"因为我喜欢你"，可惜了，你没问！15号，在万圣节地图拿完代币做完任务，在那里挂机，我就想着给你说了，当时我想了好久，然后在那里躺着挂机，你说你好喜欢我啊，我就觉得我也说了，来了一句"我也喜欢你"，第一次表白啊，我当时脸好烫，我能感觉到！要不是第二天有体测，我还得陪你说说！你又高兴的哭了，这就是喜极而泣吧，可能！不过是好的！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    后面呢，咋俩就在一起咯！刚开始你每天都觉得是在做梦，感觉是假的！那天晚上你庆祝之后喝多了，还倔强的说没醉呢！在游戏里面亲到了，我那叫一个不敢动啊，你还记得的！在微信里面你说好害羞，哈哈哈哈！然后呢，还一直打错字，还说没醉？你问了一个问题，说不要分开好吗，我原话回答"这个不能说百分百哦，说太绝对了可能是骗你的呢"，后面你就哭着睡着了。第二天早上，你说了一句"你对我的感觉……一般，随时做好撤退准备，还要立一个不想骗我的flag，鉴定完毕"！emmmm…，你在瞎说，我后面又说了一大段"你感觉对你挺一般是吧？要真是一般那天晚上我就不会对你说了哦。然后，我说的你那个好都是真的啊，是很喜欢你呢。其次啊，真一般我也不会频繁盯着手机嘛，等你消息然后回的很快啊。最后呢，每天都聊这么多呢，和你聊天的时候感觉很开心啊，这能叫真一般啊？随时撤退呢，这个也真没有。如果真有随时撤退的意思，那天晚上我就不用跟你明说，继续憋着呗，因为可以有后路嘛，感觉真一般的可以套用在随时撤退里面，它俩性质差不多，其他的我好像也没有，但是，你也说过啦，陪你玩游戏的时间从11点多到九点啦，我很愿意陪你玩啊，因为高兴嘛，这可能没啥啊，但是我觉得也是一个点[呲牙][呲牙]，可能咋俩想的有点不一样呢。还有那个一起听歌呢，我很愿意陪着你，怎么会随时撤退呢"，原话在这，我复制过来了，哈哈哈，别在意这个！然后你说我好真诚，我想着那肯定啊！这次就这么解决了，还是第一次听到你哭呢，嘿嘿！后面你还是觉得是假的，我依旧每天耐心的和你说，以前是这样以后也是！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    接着啊，咱俩感情呢，越来越好，虽然你偶尔会闹一下，我还是必须给你哄好！严重的一次就是我课有点多，老师有点严厉，有门课我上课在写东西，就没怎么理你，连续两天这样，你说你感觉失落，你又说"嗯……我会想很多，我会觉得，是不是我要太多，太粘人，是不是现在这个状态才是常态还有我觉得，如果你觉得很麻烦，或者不想要，或者想反悔，都可以直接给我讲，我是成年人，可以直接一点。我也觉得，我这种反应极大可能让你觉得委屈，我不想让你委屈，成年人要有独立消化情绪的能力，所以我刚刚不愿意跟你沟通。而且也不应该太过于依赖你，你也没有义务每时每刻都围着我转，你已经很好了。我觉得我闹情绪是不对的，但是我又确实心里不太舒服，我也不知道怎么办，所以我不说话了。大概就是这样"，我也好好给你说咯，我那700多字的小作文我就不拿过来了，你想看自己看看哦，哈哈哈！没800字，要扣分的！当时我正在打字，你说了对不起，急得我打快点，待会没准要哭了！最后也是把你哄好了，真不错。你这么重视我，我花费多久时间都要把你哄好啊！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    还有啊，我有时候真是睡过头了，哈哈哈！没死，也没有不要你，你放心！然后就是吵吵闹闹咯，因为同一件事惹哭你三次，哈哈哈，这是你说的！不过确实是真的！周末呢，你好好跟你说了你的以前，你说你的童年是在练琴房里面度过的，当时我真觉得很心疼，觉得你好可怜，想着我一定会对你很好！然后又说你前一段感情！我听了都感到很气愤，为什么这么对你，让你做你不愿意做你不愿意做的事，都这么对你了！我听着都觉得不是个人。你还说你不想就唱了一个葫芦娃，你真是的，哎哟！也怪不着你，第一次谈恋爱。以后记得就行了，不喜欢的要拒绝，就算是对我也一样，所以我一直说你高兴就好，我不会强迫你做你不愿意的事！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    到这里就差不多啦，现在说说我想说的话！首先，我不会觉得你烦，你说你有点幼稚，刚好我喜欢，你不用担心！你喜欢粘着我，这我也很高兴，不会觉得你不好，我依旧很喜欢！也不会有把你丢下的想法。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    好咯好咯，讲完咯，到这里就结束咯！我并不会说什么好话，这些都是发自内心的，你别介意啊！这是我们认识的第一个圣诞节，也不会是最后一个，以后会有很多个！你把我看的很重要，我很高兴，在我看来你也很重要！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    最后我想说，感谢你的喜欢，让我平静的生活添了一些不一样;感谢你的不放弃，以后我会对你更好;感谢你的理解，让我明白了很多，明白了喜欢是什么感受，明白了被别人重视的感觉！感谢有你。
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    还记得我说过我欠你一次正式的表白嘛，我说过会给你补上，当时想着跨年，理解决定是现在了！子菁小朋友，我喜欢你，很喜欢你，非常喜欢你，谢谢你能来爱我，我也爱你！以后的日子我会一直在你身边！短短六千多字说不完这半年，以后就让我们用心体会！
+                </p>
+
+                <p class="text-indent text-base md:text-lg transition-all duration-700 hover:text-star">
+                    幸好有你！
+                </p>
+            </div>
+            
+            <!-- 信件底部装饰 -->
+            <div class="mt-12 text-center">
+                <div class="w-2/3 h-px bg-sky/30 mx-auto mb-6"></div>
+                <p class="text-rose font-medium text-lg text-glow">✨ 圣诞快乐 · 我的光 ✨</p>
+                <div class="mt-4 flex justify-center gap-4 text-sky text-2xl">
+                    <<i class="fa fa-heart float-animation"></</i>
+                    <<i class="fa fa-star float-animation" style="animation-delay: 0.3s;"></</i>
+                    <<i class="fa fa-paper-plane float-animation" style="animation-delay: 0.6s;"></</i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 光遇祝福卡片 -->
+        <div class="bg-light/80 letter-border rounded-xl p-6 text-center">
+            <p class="text-xl text-star font-bold mb-2 text-glow">🌟 云野的约定 🌟</p>
+            <p class="text-mist/90">愿我们的故事，像星盘里的光，永远明亮</p>
+            <p class="mt-4 text-sky font-medium">你的旅伴 · 2025圣诞节</p>
+        </div>
+    </div>
+
+    <script>
+        // 优化的文字渐显效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const paragraphs = document.querySelectorAll('.prose p');
+            
+            // 替换背景图URL（将下方链接替换为你提供的图片实际链接）
+            document.body.style.backgroundImage = "url('sky.jpg')"; // 这里替换为你提供的图片链接
+            
+            paragraphs.forEach((p, index) => {
+                p.style.opacity = '0';
+                p.style.transform = 'translateY(20px)';
+                p.style.transition = 'opacity 1s ease, transform 1s ease';
+                
+                if (index === 0) {
+                    setTimeout(() => {
+                        p.style.opacity = '1';
+                        p.style.transform = 'translateY(0)';
+                    }, 500);
+                }
+            });
+            
+            function revealParagraphs() {
+                paragraphs.forEach((p, index) => {
+                    if (index === 0) return;
+                    
+                    const rect = p.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top < windowHeight * 0.9 && rect.bottom > 0) {
+                        p.style.opacity = '1';
+                        p.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            setTimeout(revealParagraphs, 800);
+            window.addEventListener('scroll', revealParagraphs);
+            
+            // 页面载入动画
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 2s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
